@@ -69,7 +69,7 @@ module Capistrano::Maintenance
             template = File.read(maintenance_template_path)
             result = ERB.new(template).result(binding)
 
-            put result, "#{maintenance_dirname}/#{maintenance_basename}.html", :mode => 0644
+            put result, "#{maintenance_dirname}/#{maintenance_basename}.html", :mode => 0644, :via => :scp
           end
 
           desc <<-DESC
